@@ -5,7 +5,7 @@ function App() {
   const [input, setInput] = useState("");
   const [numbers, setNumbers] = useState([]);
 
-  // Función para verificar si un número es primo
+  // Verificar si un número es primo
   function isPrime(num) {
     if (num < 2) return false;
     for (let i = 2; i <= Math.sqrt(num); i++) {
@@ -13,8 +13,8 @@ function App() {
     }
     return true;
   }
-  
- // Procesar la lista de números desde el input
+
+  // Procesar la lista de números desde el input
   function handleSubmit(e) {
     e.preventDefault();
     const numList = input
@@ -34,15 +34,34 @@ function App() {
           placeholder="Ej: 2, 3, 4, 5, 6"
           onChange={(e) => setInput(e.target.value)}
         />
-        <button type="submit">Renderizar</button>
+        <button type="submit">Mostrar</button>
       </form>
 
       <ul>
         {numbers.map((num, index) => {
-          let clase = num % 2 === 0 ? "par" : "impar"; 
+          // Normalmente pares o impares
+          let clase = num % 2 === 0 ? "par" : "impar";
+
           if (isPrime(num)) {
-            clase = "primo";
+            // Si es primo par 
+            if (num % 2 === 0) {
+              return (
+                <li key={index} className="primo">
+                  <span className="negro">{num}</span>
+                  <span className="par">/{num}</span>
+                </li>
+              );
+            } else {
+              // Primo impar
+              return (
+                <li key={index} className="primo">
+                  <span className="negro">{num}</span>
+                  <span className="impar">/{num}</span>
+                </li>
+              );
+            }
           }
+
           return (
             <li key={index} className={clase}>
               {num}

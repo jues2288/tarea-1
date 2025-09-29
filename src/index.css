@@ -1,4 +1,4 @@
-/*  Estilos generales */
+/* Estilos generales */
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -75,7 +75,7 @@ li {
   font-weight: bold;
 }
 
-/* Colores de los números */
+/* Colores normales */
 li.par {
   color: green;
 }
@@ -84,6 +84,31 @@ li.impar {
   color: red;
 }
 
+/* Estilo general de primos */
 li.primo {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Número en negro */
+.primo .negro {
   color: black;
+}
+
+/* El divisor en color y más pequeño */
+.primo .par {
+  color: green;
+  font-size: 16px;
+  font-weight: normal;
+  align-self: center;
+}
+
+.primo .impar {
+  color: red;
+  font-size: 16px;
+  font-weight: normal;
+  align-self: center;
 }
